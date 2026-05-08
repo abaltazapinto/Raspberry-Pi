@@ -41,7 +41,7 @@ ctrl+ alt + F7 ou F2
 # Saber a temperatura 
 
 	watch -n 1 vcgencmd measure_temp
-
+	watch -n 1 vcgencmd get_throttled
 # Recuperar dpkg
 
 	sudo dpkg --configure -a
@@ -53,4 +53,4 @@ ctrl+ alt + F7 ou F2
 # docker 
 	docker compose config
 	sudo docker compose up -d
-
+	sudo compose down (depois de fazer alteracoes a docker-compose.yml)
