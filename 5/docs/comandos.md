@@ -37,3 +37,9 @@ vcgencmd get_throttled
 
 # Fonte recomendada Raspberry Pi 5
 5V / 5A USB-C PD
+
+# Saber a temperatura 
+
+	watch -n 1 vcgencmd measure_temp
+
+
