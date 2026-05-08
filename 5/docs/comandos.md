@@ -50,3 +50,7 @@ ctrl+ alt + F7 ou F2
 # instalar docker 
 	sudo apt install -y docker.io
 
+# docker 
+	docker compose config
+	sudo docker compose up -d
+
