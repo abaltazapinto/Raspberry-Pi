@@ -1,5 +1,26 @@
 # Raspberry Pi 5 — Embedded Linux + Nextcloud Context
 
+IP: 10.42.0.53
+User: abaltaza
+Host: raspberrypi
+
+# Activar
+
+	ssh abaltaza@10.42.0.53	
+
+---
+
+# Se IP mudar 
+
+	ssh abaltaza@raspberrypi.local
+
+---
+
+# IP do Raspberry Pi que aparece neste projecto e :
+	10.42.0.53
+
+---
+
 ## Hardware
 - Raspberry Pi 5
 - Purpose: self-hosted Nextcloud server
@@ -24,7 +45,6 @@
 - Practice backup/recovery strategy
 
 ---
-
 ## Important Linux Areas
 ### Boot Process
 - Boot ROM
@@ -34,7 +54,7 @@
 - device tree
 - init/systemd
 - userspace
-
+---
 ### Networking
 - DHCP vs static IP
 - DNS
@@ -42,20 +62,20 @@
 - HTTPS/TLS
 - firewall
 - SSH hardening
-
+---
 ### Storage
 - ext4
 - mounts
 - fstab
 - external SSD
 - backup strategy
-
+---
 ### Services
 - systemctl
 - journald
 - service dependencies
 - startup sequence
-
+---
 ### Observability
 - journalctl
 - dmesg
@@ -63,9 +83,7 @@
 - iostat
 - vmstat
 - ss/netstat
-
 ---
-
 ## Nextcloud Stack
 Possible stack:
 - Nextcloud
@@ -73,13 +91,11 @@ Possible stack:
 - Nginx
 - PHP-FPM
 - Redis
-
+---
 Possible deployment:
 - native host
 - Docker containers
-
 ---
-
 ## Important Engineering Questions
 - What happens during boot?
 - How are services started?
