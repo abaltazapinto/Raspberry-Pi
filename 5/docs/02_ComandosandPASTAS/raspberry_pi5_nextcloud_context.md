@@ -27,7 +27,16 @@ Remote synchronization of 102GB Google Photos archive from Bragança desktop to 
 
 Utilizador > Nextcloud2
 
+# Para aceder remotamente1
 
+ssh abaltaza@100.70.175.106
+
+
+Próximo passo
+
+Depois do Linux instalado, instalamos Tailscale no Linux e voltas a aceder ao Raspberry pela mesma rota:
+
+100.70.175.106:8080
 
 ## Hardware
 - Raspberry Pi 5
