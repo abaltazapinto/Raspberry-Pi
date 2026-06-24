@@ -3,6 +3,11 @@
 	ssh abaltaza@10.42.0.53
 	ssh abaltaza@raspberrypi.local
 ---
+#desktop ALDEIA
+
+
+ssh abaltaza@100.70.175.106
+
 
 #ativar telemovel
 	abaltaza@raspberrypi.local
@@ -41,6 +46,7 @@ ctrl+ alt + F7 ou F2
 
 - Acionar ao fim da linha
 	consoleblank = 0
+
 
 # Reiniciar apenas ambiente gráfico
 	sudo systemctl restart lightdm
