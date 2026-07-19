@@ -13,7 +13,7 @@ Data observada: `2026-07-09`
 | `100.99.35.94` | `abalta...thinkstation-p520` | Linux | offline, visto há ~12d | Desktop / ThinkStation |
 | `100.123.108.17` | `andre-hp-zbook-fury-15-6-inch-g8-mobile-workstation-pc` | Linux | ativo | Portátil HP ZBook — apareceu no Query Log do Pi-hole |
 | `100.113.176.35` | `desktop-net1nbd` | Windows | offline, visto há ~34d | Desktop Windows |
-
+| `192.168.1.3`    | DEBIAN MACHINE abaltaza@baltazar | 
 ## Comandos úteis
 
 ### Ver devices Tailscale
