@@ -543,3 +543,353 @@ Objetivo:
 Pergunta:
 Did it create the .m4a file?
 ```
+
+---
+
+# Step 11 — Organize Library by Region and Playlists
+
+Purpose: after a clean audio file has metadata, copy it into the correct regional folder on the Raspberry Pi and add it to the correct Navidrome playlist.
+
+This extends the normal pipeline:
+
+```text
+ready/Artist/Album/
+        ↓
+copy to Raspberry Pi /srv/music/<Region>/Artist/Album/
+        ↓
+Refresh/Scan Navidrome
+        ↓
+Add song to matching playlist
+        ↓
+test on web/mobile
+```
+
+## Regional folder structure on Raspberry Pi
+
+Navidrome reads music from:
+
+```bash
+/srv/music
+```
+
+Use these top-level folders:
+
+```text
+/srv/music/Música Cubana e Latina
+/srv/music/Afrobeats e África
+/srv/music/Brasil e Lusofonia
+/srv/music/Chanson Francesa e World
+/srv/music/Rock Folk e Indie
+/srv/music/Clássica Piano e Cinemática
+/srv/music/Reggae Dub e Tropical
+/srv/music/Hip Hop Rap
+```
+
+Inside each region, keep the normal artist/album structure:
+
+```text
+/srv/music/<Region>/<Artist>/<Album>/<Artist - Title.m4a>
+```
+
+Example:
+
+```text
+/srv/music/Música Cubana e Latina/Buena Vista Social Club/Singles/Buena Vista Social Club - El Cuarto De Tula.m4a
+```
+
+## Create the regional folders
+
+Run on **Raspberry Pi**:
+
+```bash
+sudo mkdir -p "/srv/music/Música Cubana e Latina" "/srv/music/Afrobeats e África" "/srv/music/Brasil e Lusofonia" "/srv/music/Chanson Francesa e World" "/srv/music/Rock Folk e Indie" "/srv/music/Clássica Piano e Cinemática" "/srv/music/Reggae Dub e Tropical" "/srv/music/Hip Hop Rap"
+```
+
+## Move existing artists into regions
+
+Run on **Raspberry Pi**.
+
+Template:
+
+```bash
+sudo mv "/srv/music/Artist" "/srv/music/Region/"
+```
+
+Examples:
+
+```bash
+sudo mv "/srv/music/Buena Vista Social Club" "/srv/music/Música Cubana e Latina/"
+```
+
+```bash
+sudo mv "/srv/music/Poncho Sanchez" "/srv/music/Música Cubana e Latina/"
+```
+
+Verify:
+
+```bash
+tree "/srv/music/Música Cubana e Latina"
+```
+
+Expected:
+
+```text
+Música Cubana e Latina
+├── Buena Vista Social Club
+└── Poncho Sanchez
+```
+
+## Playlist strategy
+
+Folders are for physical organization. Playlists are for listening experience.
+
+A regional folder does not automatically create a playlist in Navidrome.
+
+Create playlists manually in Navidrome Web:
+
+```text
+Navidrome Web → Playlists → Create
+```
+
+Recommended first playlists:
+
+```text
+Música Cubana
+Afrobeats & África
+Brasil & Lusofonia
+Chanson Française & World
+Piano & Cinematic
+Camino & Roadtrip
+Rock Folk & Classics
+Hip Hop & Rap
+```
+
+## Mapping artists/songs to playlists
+
+### Música Cubana
+
+Use for:
+
+```text
+Buena Vista Social Club
+Poncho Sanchez
+Ana Carla Maza
+Orishas
+Harry Mold - Bonita Cubana
+Quantic - Cumbia Sobre El Mar
+Cheti - Qué Bueno!
+```
+
+### Afrobeats & África
+
+Use for:
+
+```text
+Wizkid
+Burna Boy
+Rema
+Davido
+Omah Lay
+1da Banton
+Ozedikus
+Yandé Codou Sène
+Blick Bassy
+Victor Démé
+Kolinga
+Faada Freddy
+```
+
+### Brasil & Lusofonia
+
+Use for:
+
+```text
+Natiruts
+O Rappa
+Flavia Coelho
+Bïa
+Poirier - Me Leva
+Richie Campbell
+Julinho KSD
+GANSO
+Miguel Araújo
+João Pedro Pais
+Dealema
+Da Weasel
+Sam The Kid
+Dillaz
+```
+
+### Chanson Française & World
+
+Use for:
+
+```text
+Zoufris Maracas
+Camille Hardouin
+Gaël Faye
+Lo'Jo
+Las Lloronas
+Dom La Nena
+Roseaux
+Tim Dup
+Barbara Weldens
+Anis
+Noir Désir
+Édith Piaf
+Yann Tiersen
+```
+
+### Piano & Cinematic
+
+Use for:
+
+```text
+Yann Tiersen
+Ludovico Einaudi
+Joep Beving
+Yiruma
+Philip Glass
+Hans Zimmer
+Jóhann Jóhannsson
+Hania Rani
+Alexandra Streliski
+Austin Farwell
+The Piano Guys
+Ramin Djawadi
+```
+
+### Camino & Roadtrip
+
+Use for:
+
+```text
+Eddie Vedder
+Xavier Rudd
+Hollow Coves
+The Lumineers
+José González
+Fink
+The Dead South
+Blanco White
+Patrick Watson
+Richy Mitch & The Coal Miners
+America - A Horse with No Name
+Smith & Burrows - Wonderful Life
+```
+
+### Rock Folk & Classics
+
+Use for:
+
+```text
+Dire Straits
+Pink Floyd
+The Beatles
+Nirvana
+Creedence Clearwater Revival
+Fleetwood Mac
+Bob Dylan
+The Rolling Stones
+U2
+Eagles
+Red Hot Chili Peppers
+Oasis
+The Animals
+Lynyrd Skynyrd
+Audioslave
+Stone Temple Pilots
+```
+
+### Hip Hop & Rap
+
+Use for:
+
+```text
+Eminem
+50 Cent
+The Game
+Sam The Kid
+Dealema
+Dillaz
+Da Weasel
+Sniper
+Soso Maness
+OBOY
+MHD
+```
+
+## Standard assistant behavior for playlists
+
+When André sends a new downloaded song or screenshot, after metadata validation the assistant should also classify it into:
+
+```text
+1. Raspberry Pi region folder
+2. Navidrome playlist
+```
+
+Response format:
+
+```text
+Detected artist/title: ...
+Region folder: ...
+Playlist: ...
+Next action: ...
+```
+
+Only give one action at a time.
+
+## Example classification
+
+Song:
+
+```text
+Poncho Sanchez - Bésame Mama
+```
+
+Classification:
+
+```text
+Region folder: /srv/music/Música Cubana e Latina/Poncho Sanchez/Conga Blue/
+Playlist: Música Cubana
+```
+
+Next action after scan:
+
+```text
+Navidrome Web → Artists → Poncho Sanchez → Bésame Mama → Add to Playlist → Música Cubana
+```
+
+## Troubleshooting playlists
+
+### Problem: artists appear but playlists are empty
+
+Cause: Navidrome does not auto-create playlists from folders.
+
+Fix: create playlists manually in Navidrome Web, then add songs.
+
+### Problem: mobile app does not show new playlist
+
+Fix:
+
+```text
+Pull to refresh in the app
+```
+
+If still missing:
+
+```text
+Restart Navidrome, wait 30–60 seconds, then refresh the app
+```
+
+### Problem: Unknown Artist after moving folders
+
+Cause: Navidrome index/cache may be stale or metadata may be missing.
+
+Fix on **Raspberry Pi**:
+
+```bash
+cd /srv/navidrome && sudo docker compose restart navidrome
+```
+
+Then refresh the mobile app.
