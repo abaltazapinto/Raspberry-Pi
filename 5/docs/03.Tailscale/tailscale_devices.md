@@ -14,6 +14,17 @@ Data observada: `2026-07-09`
 | `100.123.108.17` | `andre-hp-zbook-fury-15-6-inch-g8-mobile-workstation-pc` | Linux | ativo | Portátil HP ZBook — apareceu no Query Log do Pi-hole |
 | `100.113.176.35` | `desktop-net1nbd` | Windows | offline, visto há ~34d | Desktop Windows |
 | `192.168.1.3`    | DEBIAN MACHINE abaltaza@baltazar | 
+
+Raspberry Pi 5
+hostname: raspberrypi
+Tailscale: 100.116.30.48
+
+Raspberry Pi 4
+hostname: rpi4-samorinha
+Tailscale: 100.77.220.90
+Debian 13 / Linux 6.12.75+rpt-rpi-v8
+
+
 ## Comandos úteis
 
 ### Ver devices Tailscale
@@ -45,6 +56,15 @@ ou, via Tailscale IP:
 ```bash
 ssh abaltazar@100.70.175.106
 ```
+
+Raspberry Pi 5
+hostname: raspberrypi
+Tailscale: 100.116.30.48
+
+Raspberry Pi 4
+hostname: rpi4-samorinha
+Tailscale: 100.77.220.90
+Debian 13 / Linux 6.12.75+rpt-rpi-v8
 
 ## Interpretação Pi-hole
 
