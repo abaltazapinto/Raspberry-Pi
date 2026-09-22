@@ -1,13 +1,10 @@
-# Tailscale — Inventário de IPs
+# Tailscale — Dispositivos
 
-> Registo rápido dos devices no tailnet para consulta no Git.
+**Snapshot:** 2026-09-16
 
-## Estado atual
-
-Data observada: `2026-07-09`
-
-| Tailscale IP | Hostname / Device | Tipo | Estado observado | Notas |
+| Tailscale IP | Hostname | Sistema / Local | Estado atual | Notas |
 |---|---|---|---|---|
+<<<<<<< HEAD
 | `100.70.175.106` | `raspberrypi` | Linux / Raspberry Pi | ativo | Servidor Pi-hole / Nextcloud / SSH |
 | `100.104.253.113` | `a56-de-andre` | Android | offline, visto há ~9h | Telemóvel Samsung A56 |
 | `100.99.35.94` | `abalta...thinkstation-p520` | Linux | offline, visto há ~12d | Desktop / ThinkStation |
@@ -26,12 +23,35 @@ Debian 13 / Linux 6.12.75+rpt-rpi-v8
 
 
 ## Comandos úteis
+=======
+| `100.92.44.113` | `baltazar` | Debian — Porto | online / local | PC Debian usado no Porto |
+| `100.114.244.36` | `a56-de-andre` | Android | offline | last seen ~1 dia |
+| `100.121.73.87` | `abaltaza-thinkstation-p520-1` | ThinkStation P520 — Linux 6.8 | offline | PC estava ligado, mas hoje não foi possível ligar remotamente; last seen ~11 h |
+| `100.75.251.16` | `abaltaza-thinkstation-p520` | ThinkStation P520 — entrada antiga | offline | last seen ~15 dias; manter como entrada histórica até confirmar |
+| `100.116.30.48` | `raspberrypi` | Raspberry Pi 5 | active | ligação direta observada: `10.42.0.54:41641` |
+>>>>>>> 90ab4a25d0511e403c247abf0e21e50cc568f594
 
-### Ver devices Tailscale
+## Dispositivo ainda em falta
+
+### Ubuntu — Porto
+
+O Ubuntu do Porto **não aparece** no `tailscale status` deste snapshot.
+
+Estado:
+
+```text
+Ubuntu Porto
+Tailscale IP: por confirmar
+Hostname: por confirmar
+Estado: não listado no snapshot de 2026-09-16
+```
+
+## Comando de referência
 
 ```bash
 tailscale status
 ```
+<<<<<<< HEAD
 
 ### Ver IP Tailscale do device atual
 
@@ -88,3 +108,5 @@ Estes IPs são privados dentro do tailnet Tailscale, mas continuam a identificar
 - Configurar o Pi-hole como DNS do tailnet.
 - Criar aliases SSH para os hosts principais.
 - Documentar serviços por device: SSH, Nextcloud, Pi-hole, Docker.
+=======
+>>>>>>> 90ab4a25d0511e403c247abf0e21e50cc568f594
