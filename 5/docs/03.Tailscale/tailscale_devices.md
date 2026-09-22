@@ -20,8 +20,26 @@ Raspberry Pi 4
 hostname: rpi4-samorinha
 Tailscale: 100.77.220.90
 Debian 13 / Linux 6.12.75+rpt-rpi-v8
+Raspberry Pi 4 — rpi4-samorinha
 
-
+Local LAN:
+  wlan0: 10.42.0.198/24
+
+Tailscale:
+  100.77.220.90
+
+Local SSH:
+  ssh abaltaza@10.42.0.198
+
+Remote/Tailscale SSH:
+  ssh abaltaza@100.77.220.90
+  # ou, com MagicDNS:
+  ssh abaltaza@rpi4-samorinha
+
+ip -br -4 addr     → quais são os meus IPv4 locais?
+tailscale ip -4    → qual é o meu IPv4 Tailscale?
+ip route           → por onde sai o tráfego?
+
 ## Comandos úteis
 =======
 | `100.92.44.113` | `baltazar` | Debian — Porto | online / local | PC Debian usado no Porto |
