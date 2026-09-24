@@ -1,0 +1,34 @@
+ sudo find /home -name "docker-compose.yml" -o -name "compose.yml"
+/home/abaltaza/containers/nextcloud/app/custom_apps/whiteboard/docker-compose.yml
+/home/abaltaza/containers/nextcloud/docker-compose.yml
+
+# proximo update 
+
+entrar na pasta do compose
+↓
+backup
+↓
+alterar image nextcloud:31-apache para nextcloud:32-apache
+↓
+docker compose pull
+↓
+docker compose up -d
+
+---
+
+Faz agora só o backup da base de dados:
+
+sudo docker exec nc_db mariadb-dump -u root -prootpass123 nextcloud > db_backup_before_nc32.sql
+Objetivo
+
+Criar um ponto mínimo de recuperação antes de qualquer update do Nextcloud.
+
+Confirmado no teu docker-compose.yml:
+
+app:
+  image: nextcloud:31-apache
+
+Portanto o update correto será Docker-based, não ZIP.
+
+---
+
